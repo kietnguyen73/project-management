@@ -4,4 +4,6 @@ const employeeController = require('../api/controllers/EmployeeController');
 
 router.post('/', employeeController.createEmployee);
 
+router.delete('/:id', employeeController.deleteEmployee);
+
 module.exports = router;

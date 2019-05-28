@@ -8,7 +8,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 
 //connect to database
-require('./database/db');
+// require('./database/db');
 
 const employeesRouter = require('./routes/employees');
 

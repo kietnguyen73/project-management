@@ -34,7 +34,7 @@ module.exports = function (database, Sequelize) {
         fullName: {
             type: Sequelize.STRING(50),
             allowNull: true,
-            field: 'display_name'
+            field: 'full_name'
         },
         email: {
             type: Sequelize.STRING(50),
