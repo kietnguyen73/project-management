@@ -16,6 +16,46 @@ class EmployeeManager {
             }
         });
     }
+
+    getAllEmployee() {
+        return Employee.findAll();
+    }
+
+    getEmployeeById(employeeId) {
+        return Employee.findAll({
+            where: {
+                employeeId: employeeId
+            }
+        });
+    }
+
+    updateEmployeeById(employeeId, employee) {
+        return Employee.update(
+           employee
+        , {
+            where: {
+                employeeId: employeeId
+            }
+        });
+    }
+
+    findUser(username, password) {
+
+        return Employee.findAll({
+            where: {
+                user_name: username,
+                password: password
+            }
+        });
+    }
+
+    findUserByUserName(username) {
+        return Employee.findAll({
+            where: {
+                user_name: username
+            }
+        });
+    }
 }
 
 module.exports = EmployeeManager;
