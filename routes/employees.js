@@ -1,15 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const employeeController = require('../api/controllers/EmployeeController');
+const EmployeeController = require('../api/controllers/EmployeeController');
+const employeeController = new EmployeeController();
 const Auth = require('../api/controllers/AuthController');
+const hasPermission = require('../api/policies/hasPermission');
 
-// router.use(Auth.authenticate);
+
+router.use(Auth.authenticate);
+
+router.post('/', employeeController.createEmployee);
 
 router.get('/', employeeController.findAll);
 
 router.get('/:id', employeeController.findEmployeeById);
-
-router.post('/', employeeController.createEmployee);
 
 router.put('/:id', employeeController.updateEmployee);
 

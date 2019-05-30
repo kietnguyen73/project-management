@@ -12,6 +12,7 @@ const bodyParser = require('body-parser');
 
 const employeesRouter = require('./routes/employees');
 const authRouter = require('./routes/auth');
+const permisisonRouter = require('./routes/permissions');
 
 
 const app = express();
@@ -29,13 +30,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-// app.use(function(req, res, next) {
-//   console.log(req.route);
-//   next();
-// });
 
 app.use('/api/employees', employeesRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/permissions', permisisonRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

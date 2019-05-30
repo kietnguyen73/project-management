@@ -1,0 +1,51 @@
+[
+    {
+        "type":"Employee",
+        "username":"thachthaotran1997@gmail.com",
+        "password":"Tran17021997",
+        "firstName":"Trân",
+        "lastName":"Thạch",
+        "fullName":"Trân Thạch",
+        "email":"thachthaotran1997@gmail.com",
+        "avatar":"",
+        "phone":"01675153179",
+        "role_id": 1
+    },
+    {
+        "employee_id": "",
+        "type": "Employee",
+        "username": "nguyenbuinhattam@gmail.com",
+        "password": "tamni123",
+        "firstName": "Tam",
+        "lastName": "Nguyen",
+        "fullName": "Tam Nguyen",
+        "email": "nguyenbuinhattam@gmail.com",
+        "avatar": "",
+        "phone": "0334569099",
+        "role_id": 1
+    },
+    {
+        "type":"Employee",
+        "username":"kietnguyen7398@gmail.com",
+        "password":"Tran17021997",
+        "firstName":"Kiệt",
+        "lastName":"Nguyễn",
+        "fullName":"Kiệt Nguyễn",
+        "email":"kietnguyen7398@gmail.com",
+        "avatar":"",
+        "phone":"0979589073",
+        "role_id": 2
+    },
+    {
+        "type":"Employee",
+        "username":"lkduong@gmail.com",
+        "password":"lkduong1234",
+        "firstName":"Dương",
+        "lastName":"Lưu",
+        "fullName":"Dương Lưu",
+        "email":"lkduong@gmail.com",
+        "avatar":"",
+        "phone":"0972006566",
+        "role_id": 2
+    }
+]

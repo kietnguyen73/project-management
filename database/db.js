@@ -19,6 +19,7 @@ db.authenticate()
   .then(() => console.log("Connect to database successfully!"))
   .catch(err => console.log(err.message));
 
+// db.sync({force: true});
 db.sync();
 
 module.exports = {

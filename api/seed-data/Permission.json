@@ -1,0 +1,23 @@
+[
+    {
+        "permissionCode": "EMP_L",
+        "description": "Employee's List"
+    },
+    {
+        "permissionCode": "EMP_C",
+        "description": "Create an Employee"
+    },
+    {
+        "permissionCode": "EMP_R",
+        "description": "Read an Employee"
+    },
+    {
+        "permissionCode": "EMP_U",
+        "description": "Update an Employee"
+    },
+    {
+        "permissionCode": "EMP_D",
+        "description": "Delete an Employee"
+    }
+   
+]

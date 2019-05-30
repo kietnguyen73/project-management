@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const Employee = require('../managers/EmployeeManager');
-employee = new Employee();
+const EmployeeManager = require('../managers/EmployeeManager');
+const employeeManager = new EmployeeManager();
 
 module.exports.login = async (req, res, next) => {
 
@@ -18,7 +18,9 @@ module.exports.login = async (req, res, next) => {
     }
 
     try {
-        user = await employee.findUserByUserName(req.body.user_name);
+        
+        let user = await employeeManager.findUserByUserName(req.body.user_name);
+
         if (Array.isArray(user) && user.length) {
 
             let hashedPassword = user[0].dataValues.password;
@@ -34,8 +36,8 @@ module.exports.login = async (req, res, next) => {
 
         } else {
             return res.status(400).json({ message: "Invalid username or password" });
-        }
-
+        }   
+    
     } catch (err) {
         return res.status(400).json({ "message": err });
     }
@@ -49,6 +51,7 @@ module.exports.generateToken = (user, req, res) => {
         username: user[0].dataValues.username,
         email: user[0].dataValues.email,
         type: user[0].dataValues.type,
+        role: user[0].dataValues.role_id
     }
 
     /*create a token*/
