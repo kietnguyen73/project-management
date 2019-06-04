@@ -7,56 +7,38 @@ class DeliveryCenterManager {
         return DeliveryCenter.create(deliveryCenter);
     }
 
-    removeEmployee(employeeId) {
-        return Employee.update({
+    removeDeliveryCenter(deliveryCenterId) {
+        return DeliveryCenter.update({
             isDeleted: 1
         }, {
             where: {
-                employeeId: employeeId
+                deliveryCenterId: deliveryCenterId
             }
         });
     }
 
-    getAllEmployee() {
-        return Employee.findAll({
-            attributes: {
-                exclude: ["password"]
-            }
-        });
-    }
-
-    getEmployeeById(employeeId) {
-        return Employee.findAll({
+    getAllDeliveryCenter() {
+        return DeliveryCenter.findAll({
             where: {
-                employeeId: employeeId
+                isDeleted: 0
             }
         });
     }
 
-    updateEmployeeById(employeeId, employee) {
-        return Employee.update(
+    getDeliveryCenterById(deliveryCenterId) {
+        return DeliveryCenter.findAll({
+            where: {
+                deliveryCenterId: deliveryCenterId
+            }
+        });
+    }
+
+    updateDeliveryCenterById(deliveryCenterId, employee) {
+        return DeliveryCenter.update(
            employee
         , {
             where: {
-                employeeId: employeeId
-            }
-        });
-    }
-
-    findUser(username, password) {
-
-        return Employee.findAll({
-            where: {
-                user_name: username,
-                password: password
-            }
-        });
-    }
-
-    findUserByUserName(username) {
-        return Employee.findAll({
-            where: {
-                user_name: username
+                deliveryCenterId: deliveryCenterId
             }
         });
     }

@@ -7,59 +7,42 @@ class ProjectManager {
         return Project.create(project);
     }
 
-    removeEmployee(employeeId) {
-        return Employee.update({
+    removeProject(projectId) {
+        return Project.update({
             isDeleted: 1
         }, {
             where: {
-                employeeId: employeeId
+                projectId: projectId
             }
         });
     }
 
-    getAllEmployee() {
-        return Employee.findAll({
-            attributes: {
-                exclude: ["password"]
-            }
-        });
-    }
-
-    getEmployeeById(employeeId) {
-        return Employee.findAll({
+    getAllProject() {
+        return Project.findAll({
             where: {
-                employeeId: employeeId
+                isDeleted: 0
             }
         });
     }
 
-    updateEmployeeById(employeeId, employee) {
-        return Employee.update(
-           employee
+    getProjectById(projectId) {
+        return Project.findAll({
+            where: {
+                projectId: projectId
+            }
+        });
+    }
+
+    updateProjectById(projectId, project) {
+        return Project.update(
+           project
         , {
             where: {
-                employeeId: employeeId
+                projectId: projectId
             }
         });
     }
 
-    findUser(username, password) {
-
-        return Employee.findAll({
-            where: {
-                user_name: username,
-                password: password
-            }
-        });
-    }
-
-    findUserByUserName(username) {
-        return Employee.findAll({
-            where: {
-                user_name: username
-            }
-        });
-    }
 }
 
 module.exports = ProjectManager;

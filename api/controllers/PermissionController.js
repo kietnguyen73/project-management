@@ -13,9 +13,12 @@ const DeliveryCenterManager = require('../managers/DeliveryCenterManager');
 const deliveryCenterManager = new DeliveryCenterManager();
 const ProjectManager = require('../managers/ProjectManager');
 const projectManager = new ProjectManager();
+const EmployeeManager = require('../managers/EmployeeManager');
+const employeeManager = new EmployeeManager();
 const departmentData = require('../seed-data/Department.json');
 const deliveryCenterData = require('../seed-data/DeliveryCenter.json');
 const projectData = require('../seed-data/Project.json');
+const employeeData = require('../seed-data/Employee.json');
 
 
 class PermissionController {
@@ -55,6 +58,12 @@ class PermissionController {
     importProject() {
         for(let project of projectData) {
             projectManager.insertProject(project);
+        } 
+    }
+
+    importEmployee() {
+        for(let employee of employeeData) {
+            employeeManager.insertEmployee(employee);
         } 
     }
 

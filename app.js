@@ -14,6 +14,8 @@ const employeesRouter = require('./routes/employees');
 const authRouter = require('./routes/auth');
 const permisisonRouter = require('./routes/permissions');
 const departmentRouter = require('./routes/departments');
+const deliveryCenterRouter = require('./routes/deliveryCenters');
+const projectRouter = require('./routes/projects');
 
 
 const app = express();
@@ -36,6 +38,8 @@ app.use('/api/employees', employeesRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/permissions', permisisonRouter);
 app.use('/api/departments', departmentRouter);
+app.use('/api/deliveryCenters', deliveryCenterRouter);
+app.use('/api/projects', projectRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -25,6 +25,8 @@ module.exports.login = async (req, res, next) => {
 
             let hashedPassword = user[0].dataValues.password;
 
+            console.log(user);
+
             bcrypt.compare(password, hashedPassword, function (err, result) {
                 if (err) return res.status(401).json({ message: err });
                 if (result) {

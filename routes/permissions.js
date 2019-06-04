@@ -3,7 +3,7 @@ const router = express();
 const Permission = require('../api/controllers/PermissionController');
 const permission = new Permission();
 
-// router.get('/importData', permission.import);
+router.get('/importData', permission.importEmployee);
 
 
 module.exports = router;

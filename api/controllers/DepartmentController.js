@@ -1,4 +1,3 @@
-const bcrypt = require('bcrypt');
 const DepartmentManager = require('../managers/DepartmentManager');
 const departmentManager = new DepartmentManager();
 const hasPermission = require('../policies/hasPermission');
@@ -74,6 +73,7 @@ class DepartmentController {
         hasPermission(req, res, next);
 
         let departmentId = req.params.id;
+        console.log(departmentId);
     
         try {
             let department = await departmentManager.getDepartmentById(departmentId);
