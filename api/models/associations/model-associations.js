@@ -7,6 +7,11 @@ database.Employee = require('../Employee')(db, Sequelize);
 database.Role = require('../Role')(db, Sequelize);
 database.Permission = require('../Permission')(db, Sequelize);
 database.RolePermission = require('../RolePermission')(db, Sequelize);
+database.Department = require('../Department')(db, Sequelize);
+database.DeliveryCenter = require('../DeliveryCenter')(db, Sequelize);
+database.Project = require('../Project')(db, Sequelize);
+
+
 
 database.Permission.belongsToMany(database.Role, {
     through: {
@@ -24,5 +29,8 @@ database.Role.belongsToMany(database.Permission, {
 });
 
 database.Role.hasMany(database.Employee, {foreignKey: 'role_id'});
+database.Department.hasMany(database.DeliveryCenter, {foreignKey: 'department_id'});
+database.DeliveryCenter.hasMany(database.Project, {foreignKey: 'delivery_center_id'});
+
 
 module.exports = database;

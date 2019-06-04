@@ -18,6 +18,26 @@
     {
         "permissionCode": "EMP_D",
         "description": "Delete an Employee"
+    },
+    {
+        "permissionCode": "DE_L",
+        "description": "Department's List"
+    },
+    {
+        "permissionCode": "DE_C",
+        "description": "Create an Department"
+    },
+    {
+        "permissionCode": "DE_R",
+        "description": "Read an Department"
+    },
+    {
+        "permissionCode": "DE_U",
+        "description": "Update an Department"
+    },
+    {
+        "permissionCode": "DE_D",
+        "description": "Delete an Department"
     }
    
 ]

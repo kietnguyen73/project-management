@@ -6,9 +6,10 @@ const hasPermission = require('../policies/hasPermission');
 class EmployeeController {
 
     async findEmployeeById(req, res, next) {
-
+        
         hasPermission(req, res, next);
-    
+        console.log("xuong day truoc");
+        
         let employeeId = req.params.id;
         try {
             let employee = await employeeManager.getEmployeeById(employeeId);
@@ -23,6 +24,8 @@ class EmployeeController {
     }
 
     findAll(req, res, next) {
+
+        console.log(req.logger);
 
         hasPermission(req, res, next);
 
@@ -105,19 +108,7 @@ class EmployeeController {
         } catch (err) {
             return res.status(500).json({ message: err });
         }
-    
-        employeeManager.getEmployeeById(employeeId)
-            .then(employee => {
-                console.log(employee.length);
-                if (employee.length === 0) {
-                    return res.status(400).json({ message: "Cannot find this employee" });
-                }
-    
-    
-            })
-            .catch(err => {
-                return res.status(500).json({ message: err });
-            });
+
     }
 
 

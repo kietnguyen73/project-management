@@ -1,10 +1,10 @@
 const db = require('../models/associations/model-associations');
-const Employee = db.Employee;
+const DeliveryCenter = db.DeliveryCenter;
 
-class EmployeeManager {
+class DeliveryCenterManager {
     
-    insertEmployee(employee) {
-        return Employee.create(employee);
+    insertDeliveryCenter(deliveryCenter) {
+        return DeliveryCenter.create(deliveryCenter);
     }
 
     removeEmployee(employeeId) {
@@ -19,9 +19,6 @@ class EmployeeManager {
 
     getAllEmployee() {
         return Employee.findAll({
-            where: {
-                isDeleted: 0
-            },
             attributes: {
                 exclude: ["password"]
             }
@@ -65,4 +62,4 @@ class EmployeeManager {
     }
 }
 
-module.exports = EmployeeManager;
+module.exports = DeliveryCenterManager;

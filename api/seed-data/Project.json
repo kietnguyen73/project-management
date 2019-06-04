@@ -1,0 +1,17 @@
+[
+    {
+        "projectCode" : "flintfox",
+        "projectName": "Microsoft Dynamic NAV",
+        "delivery_center_id": "8"
+    },
+    {
+        "projectCode" : "flintfox",
+        "projectName": "Microsoft Dynamic AX",
+        "delivery_center_id": "8"
+    },
+    {
+        "projectCode" : "OTF",
+        "projectName": "Orange Theory Fitness",
+        "delivery_center_id": "8"
+    }
+]

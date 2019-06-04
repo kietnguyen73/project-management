@@ -6,9 +6,10 @@ const Auth = require('../api/controllers/AuthController');
 const hasPermission = require('../api/policies/hasPermission');
 
 
-router.use(Auth.authenticate);
 
 router.post('/', employeeController.createEmployee);
+
+router.use(Auth.authenticate);
 
 router.get('/', employeeController.findAll);
 

@@ -1,0 +1,18 @@
+[
+    {
+        "departmentCode": "IT",
+        "departmentName": "IT Department"
+    },
+    {
+        "departmentCode": "DE",
+        "departmentName": "Development Department"
+    },
+    {
+        "departmentCode": "AC",
+        "departmentName": "Accounting Department"
+    },
+    {
+        "departmentCode": "HR",
+        "departmentName": "Human Resource Department"
+    }
+]
