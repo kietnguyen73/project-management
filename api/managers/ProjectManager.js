@@ -20,8 +20,9 @@ class ProjectManager {
     getAllProject() {
         return Project.findAll({
             where: {
-                isDeleted: 0
-            }
+                isDeleted: 0,
+            },
+            include: [{ model: db.Department }]
         });
     }
 

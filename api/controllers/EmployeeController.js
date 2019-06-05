@@ -90,7 +90,11 @@ class EmployeeController {
             if (employee.length === 0) {
                 return res.status(200).json({ message: "Cannot find this employee" });
             }
-    
+            if(req.body.employeeId) {
+                if(req.body.employeeId != employeeId) {
+                    return res.status(200).json({ message: "Employee ID must the same" });
+                }
+            }
             //if employee found, update employee information
             employeeManager.updateEmployeeById(employeeId, req.body)
                     .then(result => {

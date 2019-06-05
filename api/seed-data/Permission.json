@@ -38,6 +38,26 @@
     {
         "permissionCode": "DE_D",
         "description": "Delete an Department"
+    },
+    {
+        "permissionCode": "PRO_L",
+        "description": "Project's List"
+    },
+    {
+        "permissionCode": "PRO_C",
+        "description": "Create an Project"
+    },
+    {
+        "permissionCode": "PRO_R",
+        "description": "Read an Project"
+    },
+    {
+        "permissionCode": "PRO_U",
+        "description": "Update an Project"
+    },
+    {
+        "permissionCode": "PRO_D",
+        "description": "Delete an Project"
     }
    
 ]

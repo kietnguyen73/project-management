@@ -21,7 +21,8 @@ class DepartmentManager {
         return Department.findAll({
             where: {
                 isDeleted: 0
-            }
+            },
+            include: [{ model: db.Project }]
         });
     }
 

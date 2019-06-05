@@ -12,5 +12,13 @@ module.exports = {
         updateDepartment: "DE_U",
         deleteDepartment: "DE_D",
         findDepartmentById: "DE_R" 
-    }
+    },
+    projects : {
+        findAll: "PRO_L",
+        createProject: "PRO_C",
+        updateProject: "PRO_U",
+        deleteProject: "PRO_D",
+        findProjectById: "PRO_R" 
+    },
+
 }

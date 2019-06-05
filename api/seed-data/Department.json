@@ -4,8 +4,20 @@
         "departmentName": "IT Department"
     },
     {
-        "departmentCode": "DE",
-        "departmentName": "Development Department"
+        "departmentCode": "DE1",
+        "departmentName": "Development Department 1"
+    },
+    {
+        "departmentCode": "DE2",
+        "departmentName": "Development Department 2"
+    },
+    {
+        "departmentCode": "DE3",
+        "departmentName": "Development Department 3"
+    },
+    {
+        "departmentCode": "DE4",
+        "departmentName": "Development Department 4"
     },
     {
         "departmentCode": "AC",

@@ -30,6 +30,12 @@ module.exports = function(database, Sequelize) {
             allowNull: true,
             field: 'end_date'
         },
+        status: {
+            type: Sequelize.ENUM('Opened', 'Running', 'Closed'),
+            allowNull: false,
+            defaultValue: 'Opened',
+            field:  'status'
+        },
         updatedDate: {
             type: Sequelize.DATE,
             allowNull: true,

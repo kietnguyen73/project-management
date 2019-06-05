@@ -7,6 +7,17 @@ class RoleManager {
         return Role.create(role);
     }
 
+    getAllRole() {
+        return Role.findAll({
+            include: [{ 
+                model: db.Permission,
+                through: {
+                    attributes: []
+                }
+            }]
+        })
+    }
+
     getPermissionByRoleId(roleId) {
 
         return Role.findAll({
@@ -19,6 +30,16 @@ class RoleManager {
                     attributes: []
                 }
             }],
+        });
+    }
+
+    updateRoleById(roleId, role) {
+        return role.update(
+           role
+        , {
+            where: {
+                roleId: roleId
+            }
         });
     }
 

@@ -2,16 +2,16 @@
     {
         "projectCode" : "flintfox",
         "projectName": "Microsoft Dynamic NAV",
-        "delivery_center_id": "8"
+        "department_id": "2"
     },
     {
         "projectCode" : "flintfox",
         "projectName": "Microsoft Dynamic AX",
-        "delivery_center_id": "8"
+        "department_id": "2"
     },
     {
         "projectCode" : "OTF",
         "projectName": "Orange Theory Fitness",
-        "delivery_center_id": "8"
+        "department_id": "2"
     }
 ]

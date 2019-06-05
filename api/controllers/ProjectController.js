@@ -8,10 +8,10 @@ class ProjectController {
         
         hasPermission(req, res, next);
     
-        let departmentId = req.params.id;
+        let projectId = req.params.id;
 
         try {
-            let project = await projectManager.getProjectById(departmentId);
+            let project = await projectManager.getProjectById(projectId);
             if (project.length === 0) {
                 return res.status(200).json({ message: "Cannot find project" });
             }
@@ -53,9 +53,9 @@ class ProjectController {
         
         hasPermission(req, res, next);
 
-        let departmentId = req.params.id;
+        let projectId = req.params.id;
 
-        projectManager.removeProject(departmentId)
+        projectManager.removeProject(projectId)
             .then(result => {
                 if (result[0] === 1) {
                     return res.status(200).json({ message: "Deleted project successfully" });
@@ -72,16 +72,20 @@ class ProjectController {
 
         hasPermission(req, res, next);
 
-        let departmentId = req.params.id;
-        console.log(departmentId);
+        let projectId = req.params.id;
+        console.log(projectId);
     
         try {
-            let project = await projectManager.getProjectById(departmentId);
+            let project = await projectManager.getProjectById(projectId);
             if (project.length === 0) {
                 return res.status(200).json({ message: "Cannot find project" });
             }
-    
-            projectManager.updateProjectById(departmentId, req.body)
+            if(req.body.projectId) {
+                if(req.body.projectId != projectId) {
+                    return res.status(200).json({ message: "Project ID must the same" });
+                }
+            }
+            projectManager.updateProjectById(projectId, req.body)
                     .then(result => {
                         console.log(result[0]);
                         if (result[0] === 1) {
