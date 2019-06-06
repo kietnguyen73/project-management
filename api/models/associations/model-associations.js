@@ -31,5 +31,10 @@ database.Role.hasMany(database.Employee, {foreignKey: 'role_id'});
 database.Department.hasMany(database.Project, {foreignKey: 'department_id'});
 database.Project.belongsTo(database.Department,{foreignKey: 'department_id'});
 
+database.Department.hasMany(database.Employee, {foreignKey: 'department_id'});
+// database.Employee.belongsTo(database.Department, {foreignKey: 'department_id'});
+// database.Employee.hasMany(database.Employee, {foreignKey: 'department_id'});
+
+
 
 module.exports = database;

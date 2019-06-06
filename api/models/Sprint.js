@@ -1,21 +1,16 @@
 module.exports = function(database, Sequelize) {
-    const Project = database.define('project', {
-        projectId : {
+    const Sprint = database.define('sprint', {
+        sprintId : {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true,
-            field: 'project_id'
+            field: 'sprint_id'
         },
-        projectCode: {
-            type: Sequelize.STRING(50),
-            allowNull: false,
-            field: 'project_code'
-        },
-        projectName : {
+        sprintName : {
             type: Sequelize.STRING(100),
             allowNull: false,
             unique: true,
-            field: 'project_name'
+            field: 'sprint_name'
         },
         startDate: {
             type: Sequelize.DATE,
@@ -26,10 +21,11 @@ module.exports = function(database, Sequelize) {
         endDate: {
             type: Sequelize.DATE,
             allowNull: true,
+            defaultValue: false,
             field: 'end_date'
         },
         status: {
-            type: Sequelize.ENUM('Opened', 'Running', 'Closed'),
+            type: Sequelize.ENUM('Opened', 'In Progress', 'In Review', 'QA', 'Closed'),
             allowNull: false,
             defaultValue: 'Opened',
             field:  'status'
@@ -66,5 +62,5 @@ module.exports = function(database, Sequelize) {
     }, {
         timestamps: false
     });
-    return Project;
+    return Sprint;
 }
