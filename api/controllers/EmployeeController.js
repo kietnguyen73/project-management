@@ -1,16 +1,16 @@
 const bcrypt = require('bcrypt');
 const EmployeeManager = require('../managers/EmployeeManager');
 const employeeManager = new EmployeeManager();
-const hasPermission = require('../policies/hasPermission');
+const hasPermission = require('../policies/hasPermission').hasPermission;
 
 class EmployeeController {
 
     async findEmployeeById(req, res, next) {
         
-        hasPermission(req, res, next);
-        console.log("xuong day truoc");
-        
+        await hasPermission(req, res, next);
+
         let employeeId = req.params.id;
+
         try {
             let employee = await employeeManager.getEmployeeById(employeeId);
             if (employee.length === 0) {
@@ -21,11 +21,10 @@ class EmployeeController {
         } catch (err) {
             return res.status(500).json({ message: err });
         }
+
     }
 
     findAll(req, res, next) {
-
-        console.log(req.logger);
 
         hasPermission(req, res, next);
 
@@ -40,7 +39,7 @@ class EmployeeController {
 
     createEmployee(req, res, next) {
        
-        hasPermission(req, res, next);
+        // hasPermission(req, res, next);
 
         //hash password before saving in DB
         bcrypt.hash(req.body.password, 10, function (err, hash) {
@@ -56,6 +55,21 @@ class EmployeeController {
                 .catch(err => {
                     return res.status(500).json({ message: err });
                 });
+        });
+    }
+
+    createEmployee2(employee) {
+       
+        // hasPermission(req, res, next);
+
+        //hash password before saving in DB
+        bcrypt.hash(employee.password, 10, async function (err, hash) {
+    
+            if (err) return res.status(500).json({ error: err });
+    
+            employee.password = hash;
+    
+            await employeeManager.insertEmployee(employee);
         });
     }
 

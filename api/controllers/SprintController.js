@@ -1,10 +1,10 @@
-const RoleManager = require('../managers/RoleManager');
-const roleManager = new RoleManager();
+const SprintManager = require('../managers/SprintManager');
+const sprintManager = new SprintManager();
 const hasPermission = require('../policies/hasPermission');
 
-class RoleController {
+class SprintController {
 
-    async findRoleById(req, res, next) {
+    async findSprintById(req, res, next) {
 
         try {
 
@@ -12,13 +12,13 @@ class RoleController {
             console.log("status" +status);
             if (status) {
 
-                let roleId = req.params.id;
-                let role = await roleManager.getRoleById(roleId);
+                let sprintId = req.params.id;
+                let sprint = await sprintManager.getSprintById(sprintId);
 
-                if (role.length === 0) {
-                    return res.status(200).json({ message: "Cannot find role" });
+                if (sprint.length === 0) {
+                    return res.status(200).json({ message: "Cannot find sprint" });
                 }
-                return res.status(200).json({ role });
+                return res.status(200).json({ sprint });
             } else {
                 return res.status(403).json({ message: "Have not permission to access this resource" });
             }
@@ -34,10 +34,10 @@ class RoleController {
             let status = await hasPermission(req, res, next);
             console.log("status" +status);
             if (status) {
-                roleManager.getAllRole()
-                    .then(role => {
+                sprintManager.getAllSprint()
+                    .then(sprint => {
                         console.log("back here");
-                        return res.status(200).json({ role });
+                        return res.status(200).json({ sprint });
                     })
                     .catch(err => {
                         return res.status(500).json({ message: err });
@@ -51,16 +51,16 @@ class RoleController {
         }
     }
 
-    async createRole(req, res, next) {
+    async createSprint(req, res, next) {
 
         try {
 
             let status = await hasPermission(req, res, next);
 
             if(status) {
-                roleManager.insertRole(req.body)
+                sprintManager.insertSprint(req.body)
                 .then(result => {
-                    return res.status(200).json({ message: "Inserted role successfully" });
+                    return res.status(200).json({ message: "Inserted sprint successfully" });
                 })
                 .catch(err => {
                     return res.status(500).json({ message: err });
@@ -75,20 +75,20 @@ class RoleController {
     }
 
 
-    async deleteRole(req, res, next) {
+    async deleteSprint(req, res, next) {
 
         try {
             
             let status = await hasPermission(req, res, next);
             if(status) {
-                let roleId = req.params.id;
+                let sprintId = req.params.id;
 
-                roleManager.removeRole(roleId)
+                sprintManager.removeSprint(sprintId)
                     .then(result => {
                         if (result[0] === 1) {
-                            return res.status(200).json({ message: "Deleted role successfully" });
+                            return res.status(200).json({ message: "Deleted sprint successfully" });
                         }
-                        return res.status(500).json({ message: "Deleted role failed" });
+                        return res.status(500).json({ message: "Deleted sprint failed" });
                     })
                     .catch(err => {
                         return res.status(500).json({ message: err });
@@ -104,30 +104,30 @@ class RoleController {
     }
 
 
-    async updateRole(req, res, next) {
+    async updateSprint(req, res, next) {
         
         try {
             
             let status = await hasPermission(req, res, next);
             if(status) {
-                let roleId = req.params.id;
-                let role = await roleManager.getRoleById(roleId);
+                let sprintId = req.params.id;
+                let sprint = await sprintManager.getSprintById(sprintId);
 
-                if (role.length === 0) {
-                    return res.status(200).json({ message: "Cannot find role" });
+                if (sprint.length === 0) {
+                    return res.status(200).json({ message: "Cannot find sprint" });
                 }
-                if (req.body.roleId) {
-                    if (req.body.roleId != roleId) {
-                        return res.status(200).json({ message: "Role ID must the same" });
+                if (req.body.sprintId) {
+                    if (req.body.sprintId != sprintId) {
+                        return res.status(200).json({ message: "Sprint ID must the same" });
                     }
                 }
-                roleManager.updateRoleById(roleId, req.body)
+                sprintManager.updateSprintById(sprintId, req.body)
                     .then(result => {
                         console.log(result[0]);
                         if (result[0] === 1) {
-                            return res.status(200).json({ message: "Updated role successfully" });
+                            return res.status(200).json({ message: "Updated sprint successfully" });
                         }
-                        return res.status(500).json({ message: "Updated role failed" });
+                        return res.status(500).json({ message: "Updated sprint failed" });
 
                     })
                     .catch(err => {
@@ -146,4 +146,4 @@ class RoleController {
 
 }
 
-module.exports = RoleController;
+module.exports = SprintController;

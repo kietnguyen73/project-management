@@ -1,0 +1,38 @@
+[
+    {
+        "sprintName" : "OTF Phase 1",
+        "projectId" : 3
+    },
+    {
+        "sprintName" : "OTF Phase 2",
+        "projectId" : 3
+    },
+    {
+        "sprintName" : "OTF Phase 3",
+        "projectId" : 3
+    },
+    {
+        "sprintName" : "NAV Phase 1",
+        "projectId" : 1
+    },
+    {
+        "sprintName" : "NAV Phase 2",
+        "projectId" : 1
+    },
+    {
+        "sprintName" : "NAV Phase 3",
+        "projectId" : 1
+    },
+    {
+        "sprintName" : "AX Phase 1",
+        "projectId" : 2
+    },
+    {
+        "sprintName" : "AX Phase 2",
+        "projectId" : 2
+    },
+    {
+        "sprintName" : "AX Phase 3",
+        "projectId" : 2
+    }
+]

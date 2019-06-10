@@ -16,7 +16,6 @@ const projectManager = new ProjectManager();
 const EmployeeManager = require('../managers/EmployeeManager');
 const employeeManager = new EmployeeManager();
 const departmentData = require('../seed-data/Department.json');
-const deliveryCenterData = require('../seed-data/DeliveryCenter.json');
 const projectData = require('../seed-data/Project.json');
 const employeeData = require('../seed-data/Employee.json');
 
@@ -25,9 +24,11 @@ class PermissionController {
 
     /* insert seed-data into db*/
 
-    importPermission() {
+    
+
+    async importPermission() {
         for(let permission of permissionData) {
-            manager.insertEmployee(permission);
+            await manager.insertEmployee(permission);
         }
     }
 
@@ -49,12 +50,6 @@ class PermissionController {
         } 
     }
 
-    importDeliveryCenter() {
-        for(let deliveryCenter of deliveryCenterData) {
-            deliveryCenterManager.insertDeliveryCenter(deliveryCenter);
-        } 
-    }
-
     importProject() {
         for(let project of projectData) {
             projectManager.insertProject(project);
@@ -65,6 +60,22 @@ class PermissionController {
         for(let employee of employeeData) {
             employeeManager.insertEmployee(employee);
         } 
+    }
+
+    importSeedData(req, res, next) {
+        try {
+             this.importPermission().then(data => {
+
+             }).catch(err => console.log(err.message));
+        } catch(err) {
+            console.log(err.message);
+        }
+      
+        // await this.importRole();
+        // await this.importRolePermission();
+        // await this.importDepartment();
+        // await this.importProject();
+        // await this.importEmployee();
     }
 
 

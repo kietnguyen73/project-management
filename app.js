@@ -16,6 +16,7 @@ const permisisonRouter = require('./routes/permissions');
 const departmentRouter = require('./routes/departments');
 const projectRouter = require('./routes/projects');
 const roleRouter = require('./routes/roles');
+const sprintRouter = require('./routes/sprints');
 
 
 const app = express();
@@ -30,9 +31,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use('/api/employees', employeesRouter);
 app.use('/api/auth', authRouter);
@@ -40,6 +40,7 @@ app.use('/api/permissions', permisisonRouter);
 app.use('/api/departments', departmentRouter);
 app.use('/api/projects', projectRouter);
 app.use('/api/roles', roleRouter);
+app.use('/api/sprints', sprintRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

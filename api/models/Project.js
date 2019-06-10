@@ -20,7 +20,6 @@ module.exports = function(database, Sequelize) {
         startDate: {
             type: Sequelize.DATE,
             allowNull: true,
-            defaultValue: false,
             field: 'start_date'
         },
         endDate: {

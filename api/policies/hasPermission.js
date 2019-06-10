@@ -7,14 +7,11 @@ module.exports = async function hasPermission(req, res, next) {
     let segments = req.baseUrl.split('/');
     let route = segments[segments.length - 1];
     let action = req.route['stack'][0]['name'];
-
-    // let action = "createEmployee";
-    let permissionCode = permissions[route][action];
-    console.log(permissionCode);
-    console.log(req.user.role);
+    let permissionCode = permissions[route] ? (permissions[route][action] ? permissions[route][action] : null) : null;
     
+    console.log("permission " +permissionCode);
     //get permissions list with specific role
-    if (req.user.role) {
+    if (req.user.role && permissionCode) {
 
         let rolePermissions = await role.getPermissionByRoleId(req.user.role);
         let employeePermissions = rolePermissions[0].permissions;
@@ -26,13 +23,12 @@ module.exports = async function hasPermission(req, res, next) {
 
         if (!isExist) {
             console.log("vao day ko " +isExist);
-            return res.status(403).json({ message: "Have not permission to access this resource" });
+            return false;
         }
-
-    } else {
-        return res.status(403).json({ message: "Have not permission to access this resource" });
-    }
-
-    
+        
+        return true;
+    } 
+        
+    return false;
 
 }

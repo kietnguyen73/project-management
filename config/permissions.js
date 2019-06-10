@@ -20,5 +20,19 @@ module.exports = {
         deleteProject: "PRO_D",
         findProjectById: "PRO_R" 
     },
+    sprints : {
+        findAll: "SPR_L",
+        createSprint: "SPR_C",
+        updateSprint: "SPR_U",
+        deleteSprint: "SPR_D",
+        findSprintById: "SPR_R" 
+    },
+    tasks : {
+        findAll: "TAS_L",
+        createTask: "TAS_C",
+        updateTask: "TAS_U",
+        deleteTask: "TAS_D",
+        findTaskById: "TAS_R" 
+    }
 
 }

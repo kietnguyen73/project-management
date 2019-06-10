@@ -1,16 +1,10 @@
 module.exports = function(database, Sequelize) {
-    const DeliveryCenter = database.define('delivery_center', {
-        deliveryCenterId : {
+    const EmployeeProject = database.define('employee_project', {
+        employeeProject: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true,
-            field: 'delivery_center_id'
-        },
-        deliveryCenterName : {
-            type: Sequelize.STRING(100),
-            allowNull: false,
-            unique: true,
-            field: 'delivery_center_name'
+            field: 'employee_project_id'
         },
         createdDate: {
             type: Sequelize.DATE,
@@ -40,9 +34,8 @@ module.exports = function(database, Sequelize) {
             defaultValue: '1',
             field: 'created_by'
         }
-        
     }, {
         timestamps: false
     });
-    return DeliveryCenter;
+    return EmployeeProject;
 }

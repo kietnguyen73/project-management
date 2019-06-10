@@ -58,6 +58,46 @@
     {
         "permissionCode": "PRO_D",
         "description": "Delete an Project"
+    },
+    {
+        "permissionCode": "SPR_L",
+        "description": "Sprint's List"
+    },
+    {
+        "permissionCode": "SPR_C",
+        "description": "Create an Sprint"
+    },
+    {
+        "permissionCode": "SPR_R",
+        "description": "Read an Sprint"
+    },
+    {
+        "permissionCode": "SPR_U",
+        "description": "Update an Sprint"
+    },
+    {
+        "permissionCode": "SPR_D",
+        "description": "Delete an Sprint"
+    },
+    {
+        "permissionCode": "TAS_L",
+        "description": "Task's List"
+    },
+    {
+        "permissionCode": "TAS_C",
+        "description": "Create an Task"
+    },
+    {
+        "permissionCode": "TAS_R",
+        "description": "Read an Task"
+    },
+    {
+        "permissionCode": "TAS_U",
+        "description": "Update an Task"
+    },
+    {
+        "permissionCode": "TAS_D",
+        "description": "Delete an Task"
     }
    
 ]

@@ -11,6 +11,11 @@ module.exports = function(database, Sequelize) {
             allowNull: true,
             field: 'message'
         },
+        attachedImage: {
+            type: Sequelize.TEXT,
+            allowNull: true,
+            field: 'attached_image'
+        },
         createdDate: {
             type: Sequelize.DATE,
             allowNull: true,
