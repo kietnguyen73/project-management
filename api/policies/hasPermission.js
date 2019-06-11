@@ -22,7 +22,7 @@ module.exports = async function hasPermission(req, res, next) {
         });       
 
         if (!isExist) {
-            console.log("vao day ko " +isExist);
+            
             return false;
         }
         

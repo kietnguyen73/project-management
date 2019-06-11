@@ -3,7 +3,6 @@ const router = express.Router();
 const EmployeeController = require('../api/controllers/EmployeeController');
 const employeeController = new EmployeeController();
 const Auth = require('../api/controllers/AuthController');
-const hasPermission = require('../api/policies/hasPermission');
 
 
 

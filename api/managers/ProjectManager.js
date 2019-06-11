@@ -22,7 +22,7 @@ class ProjectManager {
             where: {
                 isDeleted: 0,
             },
-            include: [{ model: db.Department }]
+            include: [{ model: db.Department }, { model: db.Sprint},  { model: db.Task, include: [{model: db.Employee}] }, { model: db.Employee }]
         });
     }
 

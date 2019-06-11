@@ -17,6 +17,7 @@ const departmentRouter = require('./routes/departments');
 const projectRouter = require('./routes/projects');
 const roleRouter = require('./routes/roles');
 const sprintRouter = require('./routes/sprints');
+const taskRouter = require('./routes/tasks');
 
 
 const app = express();
@@ -41,6 +42,7 @@ app.use('/api/departments', departmentRouter);
 app.use('/api/projects', projectRouter);
 app.use('/api/roles', roleRouter);
 app.use('/api/sprints', sprintRouter);
+app.use('/api/tasks', taskRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

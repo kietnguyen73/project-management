@@ -22,7 +22,7 @@ class TaskManager {
             where: {
                 isDeleted: 0,
             },
-            include: [{ model: db.Department }, { model: db.Task}]
+            include: [{ model: db.Employee }, { model: db.Project }, { model: db.Sprint }]
         });
     }
 

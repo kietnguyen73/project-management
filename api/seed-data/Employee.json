@@ -51,5 +51,18 @@
         "phone":"0972006566",
         "role_id": 2,
         "department_id": 2
+    },
+    {
+        "type":"Employee",
+        "username":"dthiep@gmail.com",
+        "password":"dthiep123",
+        "firstName":"Hiep",
+        "lastName":"Dao",
+        "fullName":"Dương Lưu",
+        "email":"dthiep.gm@gmail.com",
+        "avatar":"",
+        "phone":"0902209902",
+        "role_id": 1,
+        "department_id": 2
     }
 ]
