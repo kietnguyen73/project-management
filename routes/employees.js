@@ -5,10 +5,9 @@ const employeeController = new EmployeeController();
 const Auth = require('../api/controllers/AuthController');
 
 
+router.use(Auth.authenticate);
 
 router.post('/', employeeController.createEmployee);
-
-router.use(Auth.authenticate);
 
 router.get('/', employeeController.findAll);
 

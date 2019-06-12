@@ -50,7 +50,6 @@ class EmployeeController {
 
     async createEmployee(req, res, next) {
 
-        
         try {
             let result = await hasPermission(req, res, next);
             if (result) {

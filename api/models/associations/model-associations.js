@@ -19,60 +19,165 @@ database.Permission.belongsToMany(database.Role, {
     through: {
         model: database.RolePermission,
     },
-    foreignKey: 'permission_id'
-
+    foreignKey: {
+        name: 'permissionId',
+        field: 'permission_id'
+    }
 });
 
 database.Role.belongsToMany(database.Permission, {
     through: {
         model: database.RolePermission,
     },
-    foreignKey: 'role_id'
+    foreignKey: {
+        name: 'roleId',
+        field: 'role_id'
+    } 
 });
 
-database.Role.hasMany(database.Employee, {foreignKey: 'role_id'});
+database.Role.hasMany(database.Employee, {
+    foreignKey: {
+        name: 'roleId',
+        field: 'role_id'
+    } 
+});
 
-database.Department.hasMany(database.Project, {foreignKey: 'department_id'});
-database.Project.belongsTo(database.Department,{foreignKey: 'department_id'});
+database.Department.hasMany(database.Project, {
+    foreignKey: {
+        name: 'departmentId',
+        field: 'department_id'
+    }
+});
+database.Project.belongsTo(database.Department,{
+    foreignKey: {
+        name: 'departmentId',
+        field: 'department_id'
+    }
+});
 
-database.Department.hasMany(database.Employee, {foreignKey: 'department_id'});
-database.Employee.belongsTo(database.Department, {foreignKey: 'department_id'});
+database.Department.hasMany(database.Employee, {
+    foreignKey: {
+        name: 'departmentId',
+        field: 'department_id'
+    }
+});
+database.Employee.belongsTo(database.Department, {
+    foreignKey: {
+        name: 'departmentId',
+        field: 'department_id'
+    }
+});
 
-database.Department.hasMany(database.Project, {foreignKey: 'department_id'});
-database.Project.belongsTo(database.Department, {foreignKey: 'department_id'});
+database.Department.hasMany(database.Project, {
+    foreignKey: {
+        name: 'departmentId',
+        field: 'department_id'
+    }
+});
+database.Project.belongsTo(database.Department, {
+    foreignKey: {
+        name: 'departmentId',
+        field: 'department_id'
+    }
+});
 
 database.Employee.belongsToMany(database.Project, {
     through: {
         model: database.EmployeeProject,
     },
-    foreignKey: 'employeeId'
+    foreignKey: {
+        name: 'employeeId',
+        field: 'employee_id'
+    }
 });
 
 database.Project.belongsToMany(database.Employee, {
     through: {
         model: database.EmployeeProject,
     },
-    foreignKey: 'projectId'
+    foreignKey: {
+        name: 'projectId',
+        field: 'project_id'
+    }
 });
 
-database.Employee.hasMany(database.Task, {foreignKey: 'employeeId'});
-database.Task.belongsTo(database.Employee, {foreignKey: 'employeeId'});
+database.Employee.hasMany(database.Task, {
+    foreignKey: {
+        name: 'employeeId',
+        field: 'assigned_to'
+    }
+});
+database.Task.belongsTo(database.Employee, { 
+    foreignKey: {
+        name: 'employeeId',
+        field: 'assigned_to'
+    }
+});
 
-database.Project.hasMany(database.Task, {foreignKey: 'projectId'});
-database.Task.belongsTo(database.Project, {foreignKey: 'projectId'});
+database.Project.hasMany(database.Task, {
+    foreignKey: {
+        name: 'projectId',
+        field: 'project_id'
+    }
+});
+database.Task.belongsTo(database.Project, {
+    foreignKey: {
+        name: 'projectId',
+        field: 'project_id'
+    }
+});
 
-database.Sprint.hasMany(database.Task, {foreignKey: 'sprintId'});
-database.Task.belongsTo(database.Sprint, {foreignKey: 'sprintId'});
+database.Sprint.hasMany(database.Task, {
+    foreignKey: {
+        name: 'sprintId',
+        field: 'sprint_id'
+    }
+});
+database.Task.belongsTo(database.Sprint, {
+    foreignKey: {
+        name: 'sprintId',
+        field: 'sprint_id'
+    }
+});
 
-database.Project.hasMany(database.Sprint, {foreignKey: 'projectId'});
-database.Sprint.belongsTo(database.Project, {foreignKey: 'projectId'});
+database.Project.hasMany(database.Sprint, {
+    foreignKey: {
+        name: 'projectId',
+        field: 'project_id'
+    }
+});
+database.Sprint.belongsTo(database.Project, {
+    foreignKey: {
+        name: 'projectId',
+        field: 'project_id'
+    }
+});
 
-database.Task.hasMany(database.Comment, {foreignKey: 'taskId'});
-database.Comment.belongsTo(database.Task, {foreignKey: 'taskId'});
+database.Task.hasMany(database.Comment, {
+    foreignKey: {
+        name: 'taskId',
+        field: 'task_id'
+    }
+});
+database.Comment.belongsTo(database.Task, {
+    foreignKey: {
+        name: 'taskId',
+        field: 'task_id'
+    }
+});
 
-database.Employee.hasMany(database.Comment, {foreignKey: 'employeeId'});
-database.Comment.belongsTo(database.Employee, {foreignKey: 'employeeId'});
-
+database.Employee.hasMany(database.Comment, {
+    foreignKey: {
+        name: 'employeeId',
+        field: 'commented_by'
+    }
+});
+database.Comment.belongsTo(database.Employee, {
+    foreignKey: {
+        name: 'employeeId',
+        field: 'commented_by'
+    }
+});
 
 
 

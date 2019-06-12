@@ -51,7 +51,7 @@ module.exports.generateToken = (user, req, res) => {
         username: user[0].dataValues.username,
         email: user[0].dataValues.email,
         type: user[0].dataValues.type,
-        role: user[0].dataValues.role_id
+        role: user[0].dataValues.roleId
     }
 
     /*create a token*/
@@ -73,6 +73,7 @@ module.exports.authenticate = (req, res, next) => {
         if (err)
             return res.status(500).json({ auth: false, message: "Failed to authenticate token" });
         req.user = decoded;
+        console.log(req.user);
         next();
     });
 }

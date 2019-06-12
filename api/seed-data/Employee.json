@@ -9,8 +9,8 @@
         "email":"thachthaotran1997@gmail.com",
         "avatar":"",
         "phone":"01675153179",
-        "role_id": 1,
-        "department_id": 2
+        "roleId": 1,
+        "departmentId": 2
     },
     {
         "employee_id": "",
@@ -23,8 +23,8 @@
         "email": "nguyenbuinhattam@gmail.com",
         "avatar": "",
         "phone": "0334569099",
-        "role_id": 1,
-        "department_id": 2
+        "roleId": 1,
+        "departmentId": 2
     },
     {
         "type":"Employee",
@@ -36,8 +36,8 @@
         "email":"kietnguyen7398@gmail.com",
         "avatar":"",
         "phone":"0979589073",
-        "role_id": 2,
-        "department_id": 2
+        "roleId": 2,
+        "departmentId": 2
     },
     {
         "type":"Employee",
@@ -49,8 +49,8 @@
         "email":"lkduong@gmail.com",
         "avatar":"",
         "phone":"0972006566",
-        "role_id": 2,
-        "department_id": 2
+        "roleId": 2,
+        "departmentId": 2
     },
     {
         "type":"Employee",
@@ -62,7 +62,7 @@
         "email":"dthiep.gm@gmail.com",
         "avatar":"",
         "phone":"0902209902",
-        "role_id": 1,
-        "department_id": 2
+        "roleId": 1,
+        "departmentId": 2
     }
 ]

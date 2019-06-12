@@ -5,5 +5,17 @@
     }, 
     {
         "roleName": "Team Leader"
+    }, 
+    {
+        "roleName": "Manager"
+    }, 
+    {
+        "roleName": "Admin"
+    }, 
+    {
+        "roleName": "Human Resource"
+    }, 
+    {
+        "roleName": "Director"
     }
 ]
