@@ -66,7 +66,6 @@ module.exports.importEmployee = async () => {
 
 module.exports.importSprint = async () => {
     for(let sprint of sprintData) {
-        
         await sprintManager.insertSprint(sprint);
     } 
 }
