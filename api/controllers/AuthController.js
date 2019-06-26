@@ -50,8 +50,11 @@ module.exports.generateToken = (user, req, res) => {
         id: user[0].dataValues.employeeId,
         username: user[0].dataValues.username,
         email: user[0].dataValues.email,
-        type: user[0].dataValues.type,
-        role: user[0].dataValues.roleId
+        role: user[0].dataValues.roleId,
+        avatar: user[0].dataValues.avatar,
+        firstName: user[0].dataValues.firstName,
+        lastName: user[0].dataValues.lastName,
+        fullName: user[0].dataValues.fullName,
     }
 
     /*create a token*/
@@ -76,4 +79,8 @@ module.exports.authenticate = (req, res, next) => {
         console.log(req.user);
         next();
     });
+}
+
+module.exports.me = (req, res, next) => {
+    return res.status(200).json({profile: req.user});
 }

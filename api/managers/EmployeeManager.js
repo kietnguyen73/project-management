@@ -23,8 +23,13 @@ class EmployeeManager {
                 isDeleted: 0
             },
             attributes: {
-                exclude: ["password"]
-            }
+                exclude: ["password", "isDeleted", "roleId", "departmentId", "createdBy"]
+            },
+            include: [
+                { model: db.Employee, attributes: ['employeeId','username'], as: 'CreatedBy'},
+                { model: db.Department, attributes: ['departmentId', 'departmentCode', 'departmentName']},
+                {model: db.Role, attributes: ['roleId', 'roleName']}
+            ]
         });
     }
 
@@ -59,10 +64,22 @@ class EmployeeManager {
     findUserByUserName(username) {
         return Employee.findAll({
             where: {
-                user_name: username
+                user_name: username,
+                isDeleted: 0
             }
         });
     }
+
+    findUserByEmail(email) {
+        return Employee.findAll({
+            where: {
+                email: email,
+                isDeleted: 0
+            }
+        });
+    }
+
+
 }
 
 module.exports = EmployeeManager;

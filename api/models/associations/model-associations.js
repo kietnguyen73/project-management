@@ -42,6 +42,13 @@ database.Role.hasMany(database.Employee, {
     } 
 });
 
+database.Employee.belongsTo(database.Role, {
+    foreignKey: {
+        name: 'roleId',
+        field: 'role_id'
+    } 
+});
+
 database.Department.hasMany(database.Project, {
     foreignKey: {
         name: 'departmentId',
@@ -61,11 +68,20 @@ database.Department.hasMany(database.Employee, {
         field: 'department_id'
     }
 });
+
 database.Employee.belongsTo(database.Department, {
     foreignKey: {
         name: 'departmentId',
         field: 'department_id'
     }
+});
+
+database.Employee.belongsTo(database.Employee, {
+    foreignKey: {
+        name: 'createdBy',
+        field: 'create_by',
+    },
+    as: 'CreatedBy'
 });
 
 database.Department.hasMany(database.Project, {

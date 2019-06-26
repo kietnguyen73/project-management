@@ -22,7 +22,10 @@ class DepartmentManager {
             where: {
                 isDeleted: 0
             },
-            include: [{ model: db.Project }]
+            include: [
+                { model: db.Project },
+                { model: db.Employee }
+            ]
         });
     }
 

@@ -53,6 +53,17 @@ class EmployeeController {
         try {
             let result = await hasPermission(req, res, next);
             if (result) {
+                let user = await employeeManager.findUserByUserName(req.body.username);
+                let email = await employeeManager.findUserByEmail(req.body.email);
+
+                if(user) {
+                    return res.status(200).json({ message: "Username already exists"});
+                }
+
+                if(email) {
+                    return res.status(200).json({ message: "Email already exists"});
+                }
+
                 //hash password before saving in DB
                 bcrypt.hash(req.body.password, 10, function (err, hash) {
 
@@ -68,6 +79,7 @@ class EmployeeController {
                             return res.status(500).json({ message: err });
                         });
                 });
+
             } else {
                 return res.status(403).json({ message: "Have not permission to access this resource" });
             }
@@ -81,14 +93,11 @@ class EmployeeController {
     createEmployee2(employee) {
 
         //hash password before saving in DB
-        bcrypt.hash(employee.password, 10, async function (err, hash) {
+        let hash = bcrypt.hashSync(employee.password, 10);
+        
+        employee.password = hash;
 
-            if (err) return res.status(500).json({ error: err });
-
-            employee.password = hash;
-
-            await employeeManager.insertEmployee(employee);
-        });
+        return employeeManager.insertEmployee(employee);
     }
 
 
