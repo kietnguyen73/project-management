@@ -4,7 +4,8 @@ module.exports = {
         createEmployee: "EMP_C",
         updateEmployee: "EMP_U",
         deleteEmployee: "EMP_D",
-        findEmployeeById: "EMP_R" 
+        findEmployeeById: "EMP_R",
+        multerMiddleware: "EMP_UP"
     },
     departments : {
         findAll: "DE_L",
@@ -33,6 +34,10 @@ module.exports = {
         updateTask: "TAS_U",
         deleteTask: "TAS_D",
         findTaskById: "TAS_R" 
+    },
+    roles : {
+        findAll: "ROL_L"
     }
+
 
 }

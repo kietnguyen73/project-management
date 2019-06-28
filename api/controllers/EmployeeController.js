@@ -3,6 +3,7 @@ const EmployeeManager = require('../managers/EmployeeManager');
 const employeeManager = new EmployeeManager();
 const hasPermission = require('../policies/hasPermission');
 
+
 class EmployeeController {
 
     async findEmployeeById(req, res, next) {
@@ -49,18 +50,18 @@ class EmployeeController {
     }
 
     async createEmployee(req, res, next) {
-
+                    
         try {
             let result = await hasPermission(req, res, next);
             if (result) {
                 let user = await employeeManager.findUserByUserName(req.body.username);
                 let email = await employeeManager.findUserByEmail(req.body.email);
 
-                if(user) {
+                if(user && user.length === 1) {
                     return res.status(200).json({ message: "Username already exists"});
                 }
 
-                if(email) {
+                if(email && email.length === 1) {
                     return res.status(200).json({ message: "Email already exists"});
                 }
 
@@ -70,6 +71,7 @@ class EmployeeController {
                     if (err) return res.status(500).json({ error: err });
 
                     req.body.password = hash;
+                    req.body.avatar = req.file ? req.file.path : null;
 
                     employeeManager.insertEmployee(req.body)
                         .then(result => {
@@ -123,9 +125,6 @@ class EmployeeController {
         } catch(err) {
             return res.status(500).json({ message: err });
         }
-        
-
-        
     }
 
 
@@ -147,7 +146,6 @@ class EmployeeController {
                 //if employee found, update employee information
                 employeeManager.updateEmployeeById(employeeId, req.body)
                     .then(result => {
-                        console.log(result[0]);
                         if (result[0] === 1) {
                             return res.status(200).json({ message: "Updated employee successfully" });
                         }
@@ -167,6 +165,8 @@ class EmployeeController {
         }
 
     }
+
+
 
 }
 

@@ -76,7 +76,6 @@ module.exports.authenticate = (req, res, next) => {
         if (err)
             return res.status(500).json({ auth: false, message: "Failed to authenticate token" });
         req.user = decoded;
-        console.log(req.user);
         next();
     });
 }

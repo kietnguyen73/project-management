@@ -98,6 +98,14 @@
     {
         "permissionCode": "TAS_D",
         "description": "Delete an Task"
+    },
+    {
+        "permissionCode": "ROL_L",
+        "description": "Role's List"
+    },
+    {
+        "permissionCode": "EMP_UP",
+        "description": "Upload photos"
     }
    
 ]

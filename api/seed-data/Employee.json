@@ -64,5 +64,18 @@
         "phone":"0902209902",
         "roleId": 1,
         "departmentId": 2
+    },
+    {
+        "type":"Employee",
+        "username":"nguyentamni@gmail.com",
+        "password":"tamni123",
+        "firstName":"Tam",
+        "lastName":"Ni",
+        "fullName":"Tam Ni",
+        "email":"nguyentamni@gmail.com",
+        "avatar":"",
+        "phone":"0979589073",
+        "roleId": 1,
+        "departmentId": 2
     }
 ]
