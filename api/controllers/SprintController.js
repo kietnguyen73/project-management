@@ -32,11 +32,9 @@ class SprintController {
 
         try {
             let status = await hasPermission(req, res, next);
-            console.log("status" +status);
             if (status) {
                 sprintManager.getAllSprint()
                     .then(sprint => {
-                        console.log("back here");
                         return res.status(200).json({ sprint });
                     })
                     .catch(err => {
@@ -53,10 +51,10 @@ class SprintController {
 
     async createSprint(req, res, next) {
 
+        console.log("create sprint");
         try {
-
             let status = await hasPermission(req, res, next);
-
+            console.log(status);
             if(status) {
                 sprintManager.insertSprint(req.body)
                 .then(result => {

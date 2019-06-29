@@ -65,21 +65,34 @@ database.Project.belongsTo(database.Department,{
 database.Department.hasMany(database.Employee, {
     foreignKey: {
         name: 'departmentId',
-        field: 'department_id'
-    }
+        field: 'department_id',
+    },
+    as: 'employees'
 });
 
 database.Employee.belongsTo(database.Department, {
+   
     foreignKey: {
         name: 'departmentId',
-        field: 'department_id'
+        field: 'department_id',
+        constraints: false
     }
+});
+
+database.Department.belongsTo(database.Employee, {
+    foreignKey: {
+        name: 'createdBy',
+        field: 'created_by',
+    },
+    constraints: false,
+    as: 'CreatedBy'
 });
 
 database.Employee.belongsTo(database.Employee, {
     foreignKey: {
         name: 'createdBy',
-        field: 'create_by',
+        field: 'created_by',
+        constraints: false
     },
     as: 'CreatedBy'
 });

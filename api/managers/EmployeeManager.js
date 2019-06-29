@@ -28,7 +28,7 @@ class EmployeeManager {
             include: [
                 { model: db.Employee, attributes: ['employeeId','username'], as: 'CreatedBy'},
                 { model: db.Department, attributes: ['departmentId', 'departmentCode', 'departmentName']},
-                {model: db.Role, attributes: ['roleId', 'roleName']}
+                { model: db.Role, attributes: ['roleId', 'roleName']}
             ]
         });
     }

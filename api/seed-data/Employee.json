@@ -1,6 +1,5 @@
 [
     {
-        "type":"Employee",
         "username":"thachthaotran1997@gmail.com",
         "password":"Tran17021997",
         "firstName":"Trân",
@@ -13,8 +12,7 @@
         "departmentId": 2
     },
     {
-        "employee_id": "",
-        "type": "Employee",
+
         "username": "nguyenbuinhattam@gmail.com",
         "password": "tamni123",
         "firstName": "Tam",
@@ -27,7 +25,6 @@
         "departmentId": 2
     },
     {
-        "type":"Employee",
         "username":"kietnguyen7398@gmail.com",
         "password":"Tran17021997",
         "firstName":"Kiệt",
@@ -40,7 +37,6 @@
         "departmentId": 2
     },
     {
-        "type":"Employee",
         "username":"lkduong@gmail.com",
         "password":"lkduong1234",
         "firstName":"Dương",
@@ -53,7 +49,6 @@
         "departmentId": 2
     },
     {
-        "type":"Employee",
         "username":"dthiep@gmail.com",
         "password":"dthiep123",
         "firstName":"Hiep",
@@ -66,7 +61,6 @@
         "departmentId": 2
     },
     {
-        "type":"Employee",
         "username":"nguyentamni@gmail.com",
         "password":"tamni123",
         "firstName":"Tam",

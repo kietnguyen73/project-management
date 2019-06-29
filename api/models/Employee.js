@@ -6,11 +6,6 @@ module.exports = function (database, Sequelize) {
             autoIncrement: true,
             field: 'employee_id'
         },
-        type: {
-            type: Sequelize.ENUM('Employee'),
-            allowNull: false,
-            defaultValue: 'Employee'
-        },
         username: {
             type: Sequelize.STRING(50),
             allowNull: true,

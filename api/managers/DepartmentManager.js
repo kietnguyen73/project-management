@@ -22,10 +22,14 @@ class DepartmentManager {
             where: {
                 isDeleted: 0
             },
+            attributes: {
+                exclude: ['isDeleted', 'createdBy'],
+            },
             include: [
                 { model: db.Project },
-                { model: db.Employee }
-            ]
+                { model: db.Employee, as: 'employees'},
+                { model: db.Employee, as: 'CreatedBy', attributes: ['employeeId', 'username'] }
+            ],
         });
     }
 
