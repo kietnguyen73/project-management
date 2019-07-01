@@ -22,7 +22,11 @@ class ProjectManager {
             where: {
                 isDeleted: 0,
             },
-            include: [{ model: db.Department }, { model: db.Sprint},  { model: db.Task, include: [{model: db.Employee}] }, { model: db.Employee }]
+            include: [{ model: db.Department }, { model: db.Sprint},  { model: db.Task, include: [{model: db.Employee, attributes: {
+                exclude: ["password", "isDeleted", "roleId", "departmentId", "createdBy"]
+            },}] }, { model: db.Employee, through: { attributes: []}, attributes: {
+                exclude: ["password", "isDeleted", "roleId", "departmentId", "createdBy"]
+            },}]
         });
     }
 
@@ -30,7 +34,12 @@ class ProjectManager {
         return Project.findAll({
             where: {
                 projectId: projectId
-            }
+            },
+            include: [{ model: db.Department }, { model: db.Sprint},  { model: db.Task, include: [{model: db.Employee, attributes: {
+                exclude: ["password", "isDeleted", "roleId", "departmentId", "createdBy"]
+            },}] }, { model: db.Employee, through: { attributes: []}, attributes: {
+                exclude: ["password", "isDeleted", "roleId", "departmentId", "createdBy"]
+            },}]
         });
     }
 

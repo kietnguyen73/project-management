@@ -30,7 +30,8 @@ class SprintManager {
         return Sprint.findAll({
             where: {
                 sprintId: sprintId
-            }
+            },
+            include: [{ model: db.Project }, { model: db.Task}]
         });
     }
 

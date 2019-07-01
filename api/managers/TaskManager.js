@@ -22,7 +22,9 @@ class TaskManager {
             where: {
                 isDeleted: 0,
             },
-            include: [{ model: db.Employee }, { model: db.Project }, { model: db.Sprint }]
+            include: [{ model: db.Employee, attributes: {
+                exclude: ["password", "isDeleted", "roleId", "departmentId", "createdBy"]
+            },}, { model: db.Project }, { model: db.Sprint }]
         });
     }
 
@@ -30,7 +32,10 @@ class TaskManager {
         return Task.findAll({
             where: {
                 taskId: taskId
-            }
+            },
+            include: [{ model: db.Employee, attributes: {
+                exclude: ["password", "isDeleted", "roleId", "departmentId", "createdBy"]
+            },}, { model: db.Project }, { model: db.Sprint }]
         });
     }
 

@@ -27,7 +27,12 @@ class DepartmentManager {
             },
             include: [
                 { model: db.Project },
-                { model: db.Employee, as: 'employees'},
+                { model: db.Employee, 
+                    as: 'employees',
+                    attributes: {
+                        exclude: ["password", "isDeleted", "roleId", "departmentId", "createdBy"]
+                    }
+                },
                 { model: db.Employee, as: 'CreatedBy', attributes: ['employeeId', 'username'] }
             ],
         });
@@ -37,7 +42,17 @@ class DepartmentManager {
         return Department.findAll({
             where: {
                 departmentId: departmentId
-            }
+            },
+            include: [
+                { model: db.Project },
+                { model: db.Employee, 
+                    as: 'employees',
+                    attributes: {
+                         exclude: ["password", "isDeleted", "roleId", "departmentId", "createdBy"]
+                    }
+                },
+                { model: db.Employee, as: 'CreatedBy', attributes: ['employeeId', 'username'] }
+            ]
         });
     }
 
