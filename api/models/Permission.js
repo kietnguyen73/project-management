@@ -9,6 +9,7 @@ module.exports = function(database, Sequelize) {
         permissionCode: {
             type: Sequelize.STRING(50),
             allowNull: false,
+            unique: true,
             defaultValue: false,
             field: 'permission_code'
         },

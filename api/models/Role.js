@@ -9,6 +9,7 @@ module.exports = function(database, Sequelize) {
         roleName: {
             type: Sequelize.STRING(100),
             allowNull: false,
+            unique: true,
             defaultValue: false,
             field: 'role_name'
         },

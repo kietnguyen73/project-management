@@ -66,6 +66,37 @@ class DepartmentManager {
         });
     }
 
+    getDepartmentByDepartmentCode(departmentCode) {
+        return Department.findAll({
+            where: {
+                departmentCode: departmentCode
+            }
+        });
+    }
+
+    getDepartmentByDepartmentName(departmentName) {
+        return Department.findAll({
+            where: {
+                departmentName: departmentName
+            }
+        });
+    }
+
+    async isExisted(department) {
+        let message = [];
+        if(department.departmentCode) {
+            let departmentCode = await this.getDepartmentByDepartmentCode(department.departmentCode);
+            if(departmentCode && departmentCode.length > 0) 
+                message.push("DepartmentCode already exists");
+        }
+        if(department.departmentName) {
+            let departmentName = await this.getDepartmentByDepartmentName(department.departmentName);
+            if(departmentName && departmentName.length > 0) 
+                message.push("DepartmentName already exists");
+        }
+        return message;
+    }
+
 }
 
 module.exports = DepartmentManager;

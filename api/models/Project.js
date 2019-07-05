@@ -9,6 +9,7 @@ module.exports = function(database, Sequelize) {
         projectCode: {
             type: Sequelize.STRING(50),
             allowNull: false,
+            unique: true,
             field: 'project_code'
         },
         projectName : {

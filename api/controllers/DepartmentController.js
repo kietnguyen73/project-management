@@ -30,7 +30,6 @@ class DepartmentController {
     }
 
     async findAll(req, res, next) {
-
         try {
             let status = await hasPermission(req, res, next);
             console.log("status" +status);
@@ -55,10 +54,12 @@ class DepartmentController {
     async createDepartment(req, res, next) {
 
         try {
-
             let status = await hasPermission(req, res, next);
-
             if(status) {
+                let isExisted = await departmentManager.isExisted(req.body);
+                if(isExisted.length) 
+                    return res.status(400).json({message : isExisted});
+                    
                 departmentManager.insertDepartment(req.body)
                 .then(result => {
                     return res.status(200).json({ message: "Inserted department successfully" });

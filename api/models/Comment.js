@@ -8,7 +8,7 @@ module.exports = function(database, Sequelize) {
         },
         message: {
             type: Sequelize.STRING(100),
-            allowNull: true,
+            allowNull: false,
             field: 'message'
         },
         attachedImage: {

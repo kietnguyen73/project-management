@@ -8,13 +8,13 @@ module.exports = function (database, Sequelize) {
         },
         username: {
             type: Sequelize.STRING(50),
-            allowNull: true,
+            allowNull: false,
             unique: true,
             field: 'user_name'
         },
         password: {
             type: Sequelize.STRING(100),
-            allowNull: true
+            allowNull: false
         },
         firstName: {
             type: Sequelize.STRING(50),
@@ -28,7 +28,7 @@ module.exports = function (database, Sequelize) {
         },
         fullName: {
             type: Sequelize.STRING(50),
-            allowNull: true,
+            allowNull: false,
             field: 'full_name'
         },
         email: {

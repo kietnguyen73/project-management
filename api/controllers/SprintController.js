@@ -5,11 +5,8 @@ const hasPermission = require('../policies/hasPermission');
 class SprintController {
 
     async findSprintById(req, res, next) {
-
         try {
-
             let status =  await hasPermission(req, res, next);
-            console.log("status" +status);
             if (status) {
 
                 let sprintId = req.params.id;
@@ -29,7 +26,6 @@ class SprintController {
     }
 
     async findAll(req, res, next) {
-
         try {
             let status = await hasPermission(req, res, next);
             if (status) {
@@ -50,12 +46,12 @@ class SprintController {
     }
 
     async createSprint(req, res, next) {
-
-        console.log("create sprint");
         try {
             let status = await hasPermission(req, res, next);
-            console.log(status);
             if(status) {
+                let isExisted = await sprintManager.isExisted(req.body);
+                if(isExisted.length) 
+                    return res.status(400).json({message : isExisted[0]});
                 sprintManager.insertSprint(req.body)
                 .then(result => {
                     return res.status(200).json({ message: "Inserted sprint successfully" });
@@ -74,9 +70,7 @@ class SprintController {
 
 
     async deleteSprint(req, res, next) {
-
         try {
-            
             let status = await hasPermission(req, res, next);
             if(status) {
                 let sprintId = req.params.id;
@@ -103,9 +97,7 @@ class SprintController {
 
 
     async updateSprint(req, res, next) {
-        
         try {
-            
             let status = await hasPermission(req, res, next);
             if(status) {
                 let sprintId = req.params.id;

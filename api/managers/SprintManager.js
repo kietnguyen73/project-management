@@ -45,6 +45,24 @@ class SprintManager {
         });
     }
 
+    getSprintBySprintName(sprintName) {
+        return Sprint.findAll({
+            where: {
+                sprintName: sprintName
+            }
+        });
+    }
+
+    async isExisted(sprint) {
+        let message = [];
+        if(sprint.sprintName) {
+            let sprintName = await this.getSprintBySprintName(sprint.sprintName);
+            if(sprintName && sprintName.length > 0) 
+                message.push("Sprint already exists");
+        }
+        return message;
+    }
+
 }
 
 module.exports = SprintManager;

@@ -1,11 +1,11 @@
 [
     {
-        "projectCode" : "flintfox",
+        "projectCode" : "NAV",
         "projectName": "Microsoft Dynamic NAV",
         "departmentId": "2"
     },
     {
-        "projectCode" : "flintfox",
+        "projectCode" : "AX",
         "projectName": "Microsoft Dynamic AX",
         "departmentId": "2"
     },

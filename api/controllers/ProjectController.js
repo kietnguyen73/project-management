@@ -5,13 +5,10 @@ const hasPermission = require('../policies/hasPermission');
 class ProjectController {
 
     async findProjectById(req, res, next) {
-
         try {
-
             let status =  await hasPermission(req, res, next);
             console.log("status" +status);
             if (status) {
-
                 let projectId = req.params.id;
                 let project = await projectManager.getProjectById(projectId);
 
@@ -29,10 +26,8 @@ class ProjectController {
     }
 
     async findAll(req, res, next) {
-
         try {
             let status = await hasPermission(req, res, next);
-            console.log("status" +status);
             if (status) {
                 projectManager.getAllProject()
                     .then(project => {
@@ -52,12 +47,13 @@ class ProjectController {
     }
 
     async createProject(req, res, next) {
-
         try {
-
             let status = await hasPermission(req, res, next);
-
             if(status) {
+                let isExisted = await projectManager.isExisted(req.body);
+                if(isExisted.length) 
+                    return res.status(400).json({message : isExisted});
+
                 projectManager.insertProject(req.body)
                 .then(result => {
                     return res.status(200).json({ message: "Inserted project successfully" });

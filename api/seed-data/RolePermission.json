@@ -8,6 +8,10 @@
         "roleId": 1
     },
     {
+        "permissionId": 3,
+        "roleId": 1
+    },
+    {
         "permissionId": 4,
         "roleId": 1
     },

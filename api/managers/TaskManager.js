@@ -49,6 +49,24 @@ class TaskManager {
         });
     }
 
+    getTaskByTaskName(taskName) {
+        return Task.findAll({
+            where: {
+                taskName: taskName
+            }
+        });
+    }
+
+    async isExisted(task) {
+        let message = [];
+        if(task.taskName) {
+            let taskName = await this.getTaskByTaskName(task.taskName);
+            if(taskName && taskName.length > 0) 
+                message.push("Task already exists");
+        }
+        return message;
+    }
+
 }
 
 module.exports = TaskManager;

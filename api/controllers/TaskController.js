@@ -5,13 +5,9 @@ const hasPermission = require('../policies/hasPermission');
 class TaskController {
 
     async findTaskById(req, res, next) {
-
         try {
-
             let status =  await hasPermission(req, res, next);
-            console.log("status" +status);
             if (status) {
-
                 let taskId = req.params.id;
                 let task = await taskManager.getTaskById(taskId);
 
@@ -29,14 +25,11 @@ class TaskController {
     }
 
     async findAll(req, res, next) {
-
         try {
             let status = await hasPermission(req, res, next);
-            console.log("status" +status);
             if (status) {
                 taskManager.getAllTask()
                     .then(task => {
-                        console.log("back here");
                         return res.status(200).json({ task });
                     })
                     .catch(err => {
@@ -52,12 +45,12 @@ class TaskController {
     }
 
     async createTask(req, res, next) {
-
         try {
-
             let status = await hasPermission(req, res, next);
-
             if(status) {
+                let isExisted = await taskManager.isExisted(req.body);
+                if(isExisted.length) 
+                    return res.status(400).json({message : isExisted[0]});
                 taskManager.insertTask(req.body)
                 .then(result => {
                     return res.status(200).json({ message: "Inserted task successfully" });
@@ -76,9 +69,7 @@ class TaskController {
 
 
     async deleteTask(req, res, next) {
-
         try {
-            
             let status = await hasPermission(req, res, next);
             if(status) {
                 let taskId = req.params.id;
@@ -105,9 +96,7 @@ class TaskController {
 
 
     async updateTask(req, res, next) {
-        
         try {
-            
             let status = await hasPermission(req, res, next);
             if(status) {
                 let taskId = req.params.id;
@@ -123,7 +112,6 @@ class TaskController {
                 }
                 taskManager.updateTaskById(taskId, req.body)
                     .then(result => {
-                        console.log(result[0]);
                         if (result[0] === 1) {
                             return res.status(200).json({ message: "Updated task successfully" });
                         }

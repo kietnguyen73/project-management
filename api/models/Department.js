@@ -10,6 +10,7 @@ module.exports = function(database, Sequelize) {
             type: Sequelize.STRING(50),
             allowNull: false,
             defaultValue: false,
+            unique: true,
             field: 'department_code'
         },
         departmentName : {
